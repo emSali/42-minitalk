@@ -6,7 +6,7 @@
 #    By: esali <esali@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/10 12:28:02 by esali             #+#    #+#              #
-#    Updated: 2022/12/10 12:52:03 by esali            ###   ########.fr        #
+#    Updated: 2023/02/10 19:23:36 by esali            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS 		= $(SRCS:.c=.o)
 
 CC			= gcc
 RM			= rm -f
-CFLAGS		= -Wall -Wextra -Werror -I.
+CFLAGS		= -Wall -Wextra -Werror -I. -fsanitize=address
 RUN			= ar rcs
 
 %.o: %.c
