@@ -6,7 +6,7 @@
 /*   By: esali <esali@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:53:25 by esali             #+#    #+#             */
-/*   Updated: 2023/02/11 12:07:57 by esali            ###   ########.fr       */
+/*   Updated: 2023/02/11 12:44:32 by esali            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ int	main()
 
 void	handle_sigusr1()
 {
-	bin = ft_strjoin(bin, "0");
+	char	*save;
+
+	save = ft_strdup(bin);
+	free(bin);
+	bin = ft_strjoin(save, "0");
+	free(save);
 	ft_printf("\n%s", bin);
 	if (strlen(bin) == 8)
 	{
@@ -45,7 +50,6 @@ void	handle_sigusr1()
 		//if (bin == NULL)
 		bin = "\0";
 	}
-
 }
 
 void	handle_sigusr2()
@@ -54,6 +58,7 @@ void	handle_sigusr2()
 	ft_printf("\n%s", bin);
 	if (strlen(bin) == 8)
 	{
+		ft_printf("\nstrlen of bin is 8");
 		free(bin);
 		bin = (char *)malloc(sizeof(char) * 1);
 		//if (bin == NULL)
