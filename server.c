@@ -14,25 +14,6 @@
 
 char	*bin;
 
-int	main()
-{
-	bin = (char *) malloc(sizeof(char) * 1);
-	if (bin == NULL)
-		return (0);
-	bin = "\0";
-	ft_printf("%i", getpid());
-	signal(SIGUSR1, handle_sigusr1);
-	signal(SIGUSR2, handle_sigusr2);
-
-	while(1);
-	return (0);
-}
-
-// void	toChar(char* bin)
-// {
-
-// }
-
 void	handle_sigusr1()
 {
 	char	*save;
@@ -65,3 +46,24 @@ void	handle_sigusr2()
 		bin = "\0";
 	}
 }
+
+// void	toChar(char* bin)
+// {
+
+// }
+
+int	main()
+{
+	bin = (char *) malloc(sizeof(char) * 1);
+	if (bin == NULL)
+		return (0);
+	bin = "\0";
+	ft_printf("%i", getpid());
+	signal(SIGUSR1, handle_sigusr1);
+	signal(SIGUSR2, handle_sigusr2);
+
+	while(1);
+	return (0);
+}
+
+

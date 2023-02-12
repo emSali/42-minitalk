@@ -20,7 +20,7 @@ int	main(int argc, char *argv[])
 	int	pid;
 
 	pid = atoi(argv[1]);
-	ft_printf("\npid: %i", pid);
+
 	if(argc < 2 || ft_strlen(argv[1]) != 5)
 		return (0);
 	kill(pid, SIGUSR2);
@@ -46,7 +46,7 @@ int	main(int argc, char *argv[])
 	kill(pid, SIGUSR1);
 	usleep(10000);
 	kill(pid, SIGUSR2);
-	return (10000);
+	return (0);
 
 	/*
 	1. while loop that is going through argv[2]
