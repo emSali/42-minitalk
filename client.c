@@ -20,31 +20,30 @@ int	main(int argc, char *argv[])
 	int	pid;
 
 	pid = atoi(argv[1]);
-
-	if(argc < 2 || ft_strlen(argv[1]) != 5)
-		return (0);
+	if(argc != 3 )
+	 	return (0);
 	kill(pid, SIGUSR2);
-	usleep(10000);
+	usleep(100);
 	kill(pid, SIGUSR1);
-	usleep(10000);
+	usleep(100);
 	kill(pid, SIGUSR1);
-	usleep(10000);
+	usleep(100);
 	kill(pid, SIGUSR2);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR2);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR1);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR1);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR2);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR2);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR1);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR1);
-	usleep(10000);
+	usleep(1000);
 	kill(pid, SIGUSR2);
 	return (0);
 

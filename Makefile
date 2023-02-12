@@ -18,7 +18,7 @@ OBJS 		= $(SRCS:.c=.o)
 
 CC			= gcc
 RM			= rm -f
-CFLAGS		= -Wall -Wextra -Werror -I. -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -I. 
 RUN			= ar rcs
 
 %.o: %.c
