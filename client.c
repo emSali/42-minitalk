@@ -12,32 +12,31 @@
 
 #include "minitalk.h"
 
-//changes a character to its binary representation
-
+//sends eiter SIGUSR1 or SIGUSR2
 void send_signal(char* bin, int pid)
 {
-	ft_printf("\npid: %i, bin: %c \n", pid, bin[0]);
-	/*
 	while(*bin)
 	{
-		if(*bin == 0)
+		if(*bin == '0') {
 			kill(pid, SIGUSR1);
+			// ft_printf("\n0");
+		}
 		else
+		{
 			kill(pid, SIGUSR2);
-		*bin++;
+			// ft_printf("\n1");
+		}
+		usleep(100);
+		bin++;
 	}
-	*/
-	free(bin);
 }
 
+//changes a character to its binary representation
 void	tobin(char c, int pid)
 {
 	int		i;
-	char	*bin ;
+	char	bin[9] ;
 
-	bin = (char *)malloc(9 * sizeof(char));
-	if (bin == NULL)
-		return;
 	i = 8;
 	while (i > 0)
 	{
@@ -49,8 +48,6 @@ void	tobin(char c, int pid)
 		i--;
 	}
 	bin[8] = '\0';
-	printf("\n%i %s", pid, bin);
-
 	send_signal(bin, pid);
 }
 
@@ -66,8 +63,8 @@ int	main(int argc, char *argv[])
 		tobin(*argv[2], pid);
 		argv[2]++;
 	}
+	send_signal("00000000", pid); //final \0 to show that string is finished
 	return (0);
-	//send_signal("00000000", pid);
 }
 
 

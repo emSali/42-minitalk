@@ -13,7 +13,7 @@
 SRCS			=	ft_strlcat.c ft_atoi.c ft_strdup.c ft_strlen.c ft_isdigit.c \
 					printf/ft_printf.c printf/ft_putstr.c printf/ft_putint.c \
 					printf/ft_puthex.c printf/ft_putptr.c ft_strjoin.c ft_strchr.c \
-					ft_strlcpy.c
+					ft_strlcpy.c ft_substr.c ft_strncmp.c
 
 OBJS			=	$(SRCS:.c=.o)
 
