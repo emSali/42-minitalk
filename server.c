@@ -12,64 +12,36 @@
 
 #include "minitalk.h"
 
-// int	ft_pow(int power)
-// {
-// 	int	ret;
+int	ft_pow(int power)
+{
+	int	ret;
 
-// 	if (power == 0)
-// 		return (1);
-// 	ret = 2;
-// 	while (power > 1)
-// 	{
-// 		ret = ret * 2;
-// 		power--;
-// 	}
-// 	return (ret);
-// }
+	if (power == 0)
+		return (1);
+	ret = 2;
+	while (power > 1)
+	{
+		ret = ret * 2;
+		power--;
+	}
+	return (ret);
+}
 
-// char	toChar(char *octet)
-// {
-// 	char	c;
-// 	int		i;
+void	toChar(char *octet)
+{
+	char	c;
+	int		i;
 
-// 	i = 7;
-// 	c = 0;
-// 	if (!ft_strncmp(octet, "00000000", 8))
-// 	{
-// 		return '\n';
-// 	}
-// 	while (i >= 0)
-// 	{
-// 		if (octet[i] == '1')
-// 			c = c + ft_pow(7 - i);
-// 		i--;
-// 	}
-// 	return c;
-// }
-
-// void	print_char()
-// {
-// 	int		len;
-// 	int		i;
-// 	char	c;
-
-// 	len = ft_strlen(str);
-// 	i = 0;
-// 	while(i < len)
-// 	{
-// 		//octet = ft_substr(str, i, 8); //possible to just send pointer to 8 bit further to tochar()
-// 		c = toChar(&str[i]);
-// 		write(1, &c, 1);
-// 		i = i + 8;
-// 		//free(octet);
-// 	}
-// 	free(str); //makes sure global variable is empty before receiving next string
-// 	str = (char *)malloc(sizeof(char) * 1);
-// 	if (!str)
-// 		return;
-// 	str[0] = '\0';
-// }
-
+	i = 7;
+	c = 0;
+	while (i >= 0)
+	{
+		if (octet[i] == '1')
+			c = c + ft_pow(7 - i);
+		i--;
+	}
+	write(1, &c, 1);
+}
 
 void	handle_sigusr(int signal)
 {
@@ -87,10 +59,11 @@ void	handle_sigusr(int signal)
 	if (signal == SIGUSR2) {
 		str = ft_addchar(str, '1');
 	}
-	if (len % 8 == 0)
+	if (len == 8)
 	{
-		printf("\n%s", str);
-		fflush(stdout);
+		toChar(str);
+		free(str);
+		str = NULL;
 	}
 }
 

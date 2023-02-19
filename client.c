@@ -19,12 +19,10 @@ void send_signal(char* bin, int pid)
 	{
 		if(*bin == '0') {
 			kill(pid, SIGUSR1);
-			ft_printf("0");
 		}
 		else
 		{
 			kill(pid, SIGUSR2);
-			ft_printf("1");
 		}
 		usleep(100);
 		bin++;
@@ -63,7 +61,6 @@ int	main(int argc, char *argv[])
 		tobin(*argv[2], pid);
 		argv[2]++;
 	}
-	send_signal("00000000", pid); //final \0 to show that string is finished
 	return (0);
 }
 
