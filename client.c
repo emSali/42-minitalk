@@ -6,7 +6,7 @@
 /*   By: esali <esali@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:30:43 by esali             #+#    #+#             */
-/*   Updated: 2023/02/16 21:54:17 by esali            ###   ########.fr       */
+/*   Updated: 2023/02/19 13:42:15 by esali            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void send_signal(char* bin, int pid)
 	{
 		if(*bin == '0') {
 			kill(pid, SIGUSR1);
-			// ft_printf("\n0");
+			ft_printf("0");
 		}
 		else
 		{
 			kill(pid, SIGUSR2);
-			// ft_printf("\n1");
+			ft_printf("1");
 		}
 		usleep(100);
 		bin++;
